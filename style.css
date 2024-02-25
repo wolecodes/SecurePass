@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Raleway:wght@400;500;600&display=swap');
+
+body{
+    width: 450px;
+    color: #333;
+    padding: 10px 20px;
+    font-family: Poppins;
+}
+.header__image img{
+    background-color: #eee;
+    color: #3f3c3c;
+}
+.header__image{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container{
+    padding: 10px;
+}
+/* .form__wrapper{
+    display: flex;
+    flex-direction: column;
+} */
+.form__group label{
+    font-family: Raleway;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3f3c3c;
+}
+.form__group input{
+    width: 100%;
+    border: none;
+    background-color: #eee;
+    font-family: Raleway;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.7rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.btn{
+    font-family: Poppins;
+    font-weight: 500;
+    border: none;
+    color: white;
+    background-color: #333;
+    padding: 10px 20px;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-right: 4px;
+    border: 1px solid #3f3c3c;
+}
+.add__btn{
+    padding: 10px 25px;
+}
+.search__btn{
+    background-color: white;
+    color: #3f3c3c;
+}

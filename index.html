@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="wolecodes">
+        <title>Password Manager</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header__image">
+                <img src="./logo.png" alt="Password image">
+            </div>
+            <div class="form__wrapper">
+                <form action="">
+                    <div class="form__group">
+                        <label for="website">Website:</label>
+                        <input type="text" name="website" id="website-el" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email/Username</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="form__group p-main p-input">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password-el" autofocus>
+                        
+                    </div>
+                    <button type="button" class="password__generate__btn btn" id="password-btn">Generate</button>
+                    <button type="button" class="add__btn btn" id="add-btn">Add</button>
+                    <button type="button" class="btn search__btn" id="search-btn">Search</button>
+                </form>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
