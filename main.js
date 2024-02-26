@@ -9,34 +9,43 @@ const websiteEl = document.getElementById("website-el")
 const addBtn = document.getElementById("add-btn")
 const searchBtn = document.getElementById("search-btn")
 const lengthOfPassword = 12;
-const password = generatePassword(lengthOfPassword)
-const passwordFromlocalStorage = JSON.parse(localStorage.getItem("savedPasswords"));
+let password = generatePassword(lengthOfPassword)
+let savedPasswords = JSON.parse(localStorage.getItem("savePasswords")) || {}
 
-if(passwordFromlocalStorage){
-    addPassword(password)
-}
-
-function searchPassword(website){
-    if(typeof(Storage) !== "undefined"){
-        const savedPasswords = JSON.parse(localStorage.getItem("savePassword")) || {}
-        if(savedPasswords.hasOwnProperty(website)){
-            return savedPasswords[website];
-        }
-        else{
-            return alert("Password not found for this password!")
-        }
+// function searchPassword(website){
+// //     if(typeof(Storage) !== "undefined"){
+// //         const savedPasswords = JSON.parse(localStorage.getItem("savePassword")) || {}
+// //         if(savedPasswords.hasOwnProperty(website)){
+// //             return savedPasswords[website];
+// //         }
+// //         else{
+// //             return alert("Password not found for this website!")
+// //         }
+// //     }
+// //     else{
+// //         alert("local storage not supported.")
+// //     }
+// // }
+addBtn.addEventListener('click', function(){
+    if(savedPasswords){
+        addPassword(websiteEl.value, password)
     }
-    else{
-        alert("local storage not supported.")
-    }
-}
+    
+    websiteEl.value = ""
+    passwordEl.value = ""
+})
 
 function addPassword(website, password){
     if(typeof(Storage) !== "undefined"){
-        let savedPasswords = JSON.parse(localStorage.getItem("savePassword")) || {}
-        savedPasswords[website] = password
-
-        localStorage.setItem("savedPasswords", JSON.stringify(savedPasswords))
+        let keys = Object.keys(savedPasswords).map(key => key.toLowerCase())
+        let lowerCaseWebsite = website.toLowerCase();
+        if(!keys.includes(lowerCaseWebsite)){
+             savedPasswords[website] = password
+             localStorage.setItem("savedPasswords", JSON.stringify(savedPasswords))
+        }
+        else{
+            alert("webiste already has a password.")
+        }
 
     }
     else{
@@ -74,11 +83,7 @@ function generatePassword(length){
 searchBtn.addEventListener('click', function(){
     const foundPassword = searchPassword(websiteEl.value)
 })
-addBtn.addEventListener('click', function(){
-    addPassword(websiteEl.value, password)
-    websiteEl.value = ""
-    passwordEl.value = ""
-})
+
 passwordBtn.addEventListener('click', function(){
     generatePassword(lengthOfPassword)
     passwordEl.value = password
