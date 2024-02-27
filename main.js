@@ -9,28 +9,26 @@ const websiteEl = document.getElementById("website-el")
 const addBtn = document.getElementById("add-btn")
 const searchBtn = document.getElementById("search-btn")
 const lengthOfPassword = 12;
-let password = generatePassword(lengthOfPassword)
 let savedPasswords = JSON.parse(localStorage.getItem("savePasswords")) || {}
 
-// function searchPassword(website){
-// //     if(typeof(Storage) !== "undefined"){
-// //         const savedPasswords = JSON.parse(localStorage.getItem("savePassword")) || {}
-// //         if(savedPasswords.hasOwnProperty(website)){
-// //             return savedPasswords[website];
-// //         }
-// //         else{
-// //             return alert("Password not found for this website!")
-// //         }
-// //     }
-// //     else{
-// //         alert("local storage not supported.")
-// //     }
-// // }
-addBtn.addEventListener('click', function(){
-    if(savedPasswords){
-        addPassword(websiteEl.value, password)
+function searchPassword(website){
+    if(typeof(Storage) !== "undefined"){
+        const savedPasswords = JSON.parse(localStorage.getItem("savePassword"))
+        if(savedPasswords.hasOwnProperty[website]){
+            return savedPasswords[website]
+        }
+        else{
+             alert("Password not found for this website!")
+        }
+    }
+    else{
+        alert("local storage not supported.")
     }
     
+}
+addBtn.addEventListener('click', function(){
+    const password = generatePassword(lengthOfPassword)
+    addPassword(websiteEl.value, password)
     websiteEl.value = ""
     passwordEl.value = ""
 })
@@ -82,10 +80,11 @@ function generatePassword(length){
 
 searchBtn.addEventListener('click', function(){
     const foundPassword = searchPassword(websiteEl.value)
+    passwordEl.value = foundPassword
 })
 
 passwordBtn.addEventListener('click', function(){
-    generatePassword(lengthOfPassword)
+   const password = generatePassword(lengthOfPassword)
     passwordEl.value = password
 })
 
