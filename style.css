@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Raleway:wght@400;500;600&display=swap');
 
 body{
-    width: 450px;
+    min-width: 450px;
     color: #333;
     padding: 10px 20px;
     font-family: Poppins;
 }
-.header__image img{
-    background-color: #eee;
+/* .header__image img{
     color: #3f3c3c;
-}
+} */
 .header__image{
     text-align: center;
     margin-bottom: 20px;
